@@ -1,0 +1,2 @@
+//auth 
+- signup rote created so as after signup we will redirect them to sigin page then we can send cookies 
