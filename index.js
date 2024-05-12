@@ -2,6 +2,7 @@ import express from 'express'
 import { DbConnect } from './db/db.js'
 import authrouter from './routes/auth.router.js'
 import cookieParser from 'cookie-parser';
+import checkoutrouter from './routes/checkout.route.js'
 
 
 const port = 8080
@@ -10,6 +11,7 @@ app.use(cookieParser())
 app.use(express.json())
 
 app.use('/auth' , authrouter)
+app.use('/checkout' , checkoutrouter)
 
 app.get('/', (req,res)=>{
     res.json("server is running")
