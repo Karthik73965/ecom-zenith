@@ -11,3 +11,14 @@ export const verifyToken = (req,res,next)=>{
     next(); 
     })
 }
+
+export const VerifyAdminToken = (req,res,next)=>{
+    const token = req.cookies.access_admin;
+
+    if(!token) return next(errorHandler(401,'unauthorized'))
+    jwt.verify(token,process.env.JWT_SECRET , (err, user)=>{
+        if(err) return next(errorHandler(403,'Forebidden '))
+       req.user = user ;
+    next(); 
+    })
+}
